@@ -10,7 +10,7 @@
   <description>A JVM Tool Interface Java Agent does some simple web application profiling</description>
   
   <properties>
-  	<project.version>1.0.0-alpha</project.version>
+  	<project.version>1.0.0-alpha2</project.version>
 	<project.sourceEncoding>UTF-8</project.sourceEncoding>
 
 	<java.source.version>1.8</java.source.version> 
@@ -30,5 +30,6 @@
   <modules>
   	<module>gladys-agent</module>
   	<module>gladys-bootstrap-jar</module>
+  	<module>gladys-remote-console</module>
   </modules>
 </project>

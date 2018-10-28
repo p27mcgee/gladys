@@ -5,6 +5,8 @@ import com.github.p27mcgee.gladys.agent.bootloader.GladysRequestLedgerRegistrar;
 
 import net.bytebuddy.asm.Advice;
 
+@Deprecated 
+// Activating this crashes the app.  Maybe some circular dependency?
 public class ObjectConstructorAdvice {
 
 	// After creating a new object include the estimated
