@@ -1,0 +1,22 @@
+From https://stackoverflow.com/questions/35577485/junit-test-framework-for-javaagent-instrumentation-framework
+
+https://github.com/raphw/byte-buddy/blob/master/byte-buddy-dep/src/test/java/net/bytebuddy/agent/builder/AgentBuilderDefaultApplicationTest.java
+
+You can take inspiration from Byte Buddy's own unit tests for creating 
+a Java agent. For this, declare a test dependency on the byte-buddy-agent 
+module. That module includes a class that is capable of attaching a Java 
+agent at runtime using ByteBuddyAgent.install() which returns an 
+Instrumentation instance. Make sure that you remove a Java agent after 
+running a unit test. Otherwise, your agent will remain active for any 
+subsequent test.
+
+On tricky part for creating repeatable tests is the fact that a class 
+must not be loaded before the agent is applied. Byte Buddy's test harness 
+solves this by creating a ByteArrayClassLoader that is capable of all the 
+classes that are subject to instrumentation. As this class loader is 
+created dynamically, this can be guaranteed.
+
+Most JDK-bundled VMs are capable of a runtime attachment of a Java agent. 
+To be sure, Byte Buddy does however define a AgentAttachmentRule for 
+JUnit that asserts this capability before running a test. You might 
+consider this as well.

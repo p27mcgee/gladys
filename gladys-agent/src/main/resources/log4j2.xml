@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>       
+        <Console name="PlainConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %msg%n"/>
+        </Console>  
+<!-- 	TODO failed connection stack traces clutter the console suppress them -->
+			<Http name="Http" url="http://localhost:8088/gladys-remote-console/ledger"
+        	connectTimeoutMillis="1000" readTimeoutMillis="1000" ignoreExceptions="true">
+      		<PatternLayout pattern="%msg"/>
+	    </Http>
+	    <Async name="gladys-remote-console" ignoreExceptions="true">
+	      <AppenderRef ref="Http"/>
+	    </Async>
+<!-- 	TODO this stuff is buggy    
+	    <Failover name="remoteFailover" primary="gladys-remote-console">
+	      <Failovers>
+	        <AppenderRef ref="HttpFailoverConsole"/>
+	      </Failovers>
+	    </Failover>
+ -->	    
+         <Console name="HttpFailoverConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} Gladys Remote Console Unavailable - %msg%n"/>
+        </Console>  
+    </Appenders>
+    <Loggers>
+	    <Logger name="com.github.p27mcgee.gladys.agent.data.ReportGladysRequestLedger" level="INFO">
+	      <AppenderRef ref="PlainConsole"/>
+	    </Logger>
+	    <Logger  name="com.github.p27mcgee.gladys.agent.data.RemoteReportLedger" level="DEBUG">
+	      <!-- enable for remote Ledger JSON logging <AppenderRef ref="gladys-remote-console"/> -->
+	      <!-- enable for local  Ledger JSON logging <AppenderRef ref="HttpFailoverConsole"/> -->
+	    </Logger >
+	    <Logger name="com.github.p27mcgee.gladys.agent.InstrumentedBuilderListener" level="INFO">
+	      <AppenderRef ref="Console"/>
+	    </Logger>
+	    <Logger name="com.github.p27mcgee.gladys.agent.DebugBuilderListener" level="DEBUG">
+	      <AppenderRef ref="Console"/>
+	    </Logger>
+        <Root level="INFO">
+        </Root>
+    </Loggers>
+<!-- JVM system property pointing to log4j2 configuration file
+-Dlog4j.configurationFile=path/to/log4j2.xml
+-->    
+</Configuration>

@@ -5,4 +5,6 @@ A proof of concept JVM Tool Interface Java Agent
 
 ### If you go snooping don't be shocked by what you find!
 
+To try out the agent launch 
+
 [mskravitz]: https://vignette.wikia.nocookie.net/bewitched/images/e/ee/Gladys_Kravitz.jpg/revision/latest?cb=20090817040052

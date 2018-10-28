@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.github.p27mcgee.gladys</groupId>
+  <artifactId>gladys</artifactId>
+  <version>${project.version}</version>
+  <packaging>pom</packaging>
+  
+  <name>Gladys JVMTI Java Agent</name>
+  <description>A JVM Tool Interface Java Agent does some simple web application profiling</description>
+  
+  <properties>
+  	<project.version>1.0.0-alpha</project.version>
+	<project.sourceEncoding>UTF-8</project.sourceEncoding>
+
+	<java.source.version>1.8</java.source.version> 
+	<java.target.version>1.8</java.target.version> 
+	<java.test.source.version>1.8</java.test.source.version> 
+	<java.test.target.version>1.8</java.test.target.version> 
+	
+    <byte-buddy.version>1.9.0</byte-buddy.version>
+    <junit.version>4.12</junit.version>
+    <servlet.version>3.1.0</servlet.version>
+    <mockito.version>2.23.0</mockito.version>
+    
+	<compiler.plugin.version>3.8.0</compiler.plugin.version> 
+	<jar.plugin.version>3.0.2</jar.plugin.version>   
+  </properties>
+  
+  <modules>
+  	<module>gladys-agent</module>
+  	<module>gladys-bootstrap-jar</module>
+  </modules>
+</project>
