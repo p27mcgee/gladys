@@ -146,19 +146,10 @@ public class GladysAgent {
 		return agentArgs;
 	}
 
-	public static void setAgentArgs(String agentArgs) {
-		GladysAgent.agentArgs = agentArgs;
-	}
-
-
 	public static Instrumentation getInstrumentation() {
 		return instrumentation;
 	}
 
-	public static void setInstrumentation(Instrumentation instrumentation) {
-		GladysAgent.instrumentation = instrumentation;
-	}
-	
 	public static GladysRequestLedger createGladysRequestLedger() {
 		return new GladysRequestLedgerImpl(instrumentation);
 	}

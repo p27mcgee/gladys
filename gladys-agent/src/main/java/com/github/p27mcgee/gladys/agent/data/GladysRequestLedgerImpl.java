@@ -48,6 +48,11 @@ public class GladysRequestLedgerImpl implements Serializable, GladysRequestLedge
 	// of servlets entered and not yet exited.
 	Stack<String> servletStack = new Stack<>(); 
 
+	String instrumentationExceptionMessage;
+	
+	@JsonIgnore
+	Throwable instrumentationException = null;
+	
 	List<String> loadedClasses = RECORD_LOADED_CLASSES ? new ArrayList<>() : null;
 	
 	private GladysRequestLedgerImpl() {		
@@ -130,6 +135,10 @@ public class GladysRequestLedgerImpl implements Serializable, GladysRequestLedge
 		return classLoadCount;
 	}
 
+	public String getInstrumentationExceptionMessage() {
+		return instrumentationExceptionMessage;
+	}
+
 	@JsonIgnore
 	public List<String> getLoadedClasses() {
 		return loadedClasses;
@@ -149,12 +158,15 @@ public class GladysRequestLedgerImpl implements Serializable, GladysRequestLedge
 	public void exitingServlet(String servletName) {
 		if (servletName.equals(servletStack.peek())) {
 			servletStack.pop();
+			if (servletStack.isEmpty()) {
+				endNanos = System.nanoTime();
+			}
 		} else {
-			new IllegalStateException("logCompletion(" + servletName + ") callled "
-				+ "with servletStack: " + servletStack)
-				.printStackTrace();
-		}
-		if (servletStack.isEmpty()) {
+			instrumentationExceptionMessage = 
+				"logCompletion(" + servletName + ") called "
+					+ "with servletStack: " + servletStack;
+			instrumentationException = 
+				new IllegalStateException(instrumentationExceptionMessage);
 			endNanos = System.nanoTime();
 		}
 	}

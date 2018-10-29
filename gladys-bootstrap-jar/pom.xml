@@ -4,7 +4,7 @@
   <parent>
   	<groupId>com.github.p27mcgee.gladys</groupId>
   	<artifactId>gladys</artifactId>
-  	<version>1.0.0-alpha2</version>
+  	<version>1.0.0-alpha3</version>
   </parent>
   
   <artifactId>gladys-bootstrap-jar</artifactId>

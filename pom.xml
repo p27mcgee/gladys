@@ -3,14 +3,14 @@
   
   <groupId>com.github.p27mcgee.gladys</groupId>
   <artifactId>gladys</artifactId>
-  <version>${project.version}</version>
+  <version>1.0.0-alpha3</version>
   <packaging>pom</packaging>
   
   <name>Gladys JVMTI Java Agent</name>
   <description>A JVM Tool Interface Java Agent does some simple web application profiling</description>
   
   <properties>
-  	<project.version>1.0.0-alpha2</project.version>
+  	<project.version>1.0.0-alpha3</project.version>
 	<project.sourceEncoding>UTF-8</project.sourceEncoding>
 
 	<java.source.version>1.8</java.source.version> 
