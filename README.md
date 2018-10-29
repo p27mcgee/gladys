@@ -1,9 +1,11 @@
 # gladys
+#### If you go snooping you may be shocked by what you find!
+
 A proof of concept JVM Tool Interface Java Agent
 
-![Don't be shocked by what you find!][mskravitz]
-
-### If you go snooping don't be shocked by what you find!
+| ![Don't be shocked by what you find!][mskravitz] |
+|:--:|
+| *Gladys Kravitz, a classic snoop.* |
 
 To try out the agent launch 
 
