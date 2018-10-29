@@ -7,6 +7,11 @@
         <Console name="PlainConsole" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %msg%n"/>
         </Console>  
+  		<File name="summary-log-file" fileName="gladysSummary.log">
+			<PatternLayout>
+				<Pattern>"%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"</Pattern>
+			</PatternLayout>
+		</File>        
 <!-- 	TODO failed connection stack traces clutter the console suppress them -->
 			<Http name="Http" url="http://localhost:8088/gladys-remote-console/ledger"
         	connectTimeoutMillis="1000" readTimeoutMillis="1000" ignoreExceptions="true">
@@ -29,6 +34,7 @@
     <Loggers>
 	    <Logger name="com.github.p27mcgee.gladys.agent.data.ReportGladysRequestLedger" level="INFO">
 	      <AppenderRef ref="PlainConsole"/>
+	      <AppenderRef ref="summary-log-file"/>
 	    </Logger>
 	    <Logger  name="com.github.p27mcgee.gladys.agent.data.RemoteReportLedger" level="DEBUG">
 	      <!-- enable for remote Ledger JSON logging <AppenderRef ref="gladys-remote-console"/> -->
