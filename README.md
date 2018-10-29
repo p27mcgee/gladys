@@ -93,6 +93,8 @@ Gladys is in desparate need of enhanced unit and integration tests, and a fair a
 
 An important feature enhancement for gladys is the addition of a measurent of memory used by objects created during request processing.  Initial attempts to make these measurements met with catastrophic results.  (The JVM crashed on start-up.)
 
+In gladys I have attempted, and I believe failed, to "shadow" the dependencies of the gladys-agent.  The idea is to rename classes in libraries which may also be used in the target application to avoid version clashes and the possibility of having multiple versions of classes loaded in different classloaders.  The Maven "Shade Plugin" conveniently provides this functionality, but I believe I have it misconfigured.  I haven't seen any indication of conflicting libraries in gladys and WebGoat, but gladys should be made compatible with as wide a variety of target applications as possible.
+
 And something must be done about those ugly exception stack traces that show up when the remote console is not listening as expected.
 
 \- Phil McGee
