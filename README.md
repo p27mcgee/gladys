@@ -97,6 +97,10 @@ In gladys I have attempted, and I believe failed, to "shadow" the dependencies o
 
 And something must be done about those ugly exception stack traces that show up when the remote console is not listening as expected.
 
+## Acknowledgements
+
+This project was made possible by the astonishingly original and powerful tool Byte Buddy, the work of Rafael Winterhalter.  Without Byte Buddy and Rafael's tireless efforts to support it's users and explain the intricacies and pitfalls of JVM instrumentation I could not conceive of having produced gladys, even with it's meager functionality.  Thank you, Rafael, you are a craftsman of the highest order. 
+
 \- Phil McGee
 
 [mskravitz]: https://vignette.wikia.nocookie.net/bewitched/images/e/ee/Gladys_Kravitz.jpg/revision/latest?cb=20090817040052
