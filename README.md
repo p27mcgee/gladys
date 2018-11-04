@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/p27mcgee/gladys.svg?branch=master)](https://travis-ci.com/p27mcgee/gladys)
 
-A proof of concept JVM Tool Interface Java Agent
+A proof of concept Java Agent for instrumenting the JVM
 
 | ![Gladys Kravitz, a classic snoop.][mskravitz] |
 |:--:|
@@ -10,7 +10,7 @@ A proof of concept JVM Tool Interface Java Agent
 
 #### If you go snooping you may be shocked by what you find!
 
-Gladys is a Java Agent that accesses the internals of the Java virtual machine through its Tool Interface (JVMTI).  Currently, both it's functionality and flexibility are very limited.  Gladys targets web applications running in a Java Servlet container (e.g., Apache Tomcat) and attempts to measure, for each HTTP request: 
+Gladys is a Java Agent that accesses the internals of the Java virtual machine through the interface java.lang.instrument.Instrumentation.  Currently, both it's functionality and flexibility are very limited.  Gladys targets web applications running in a Java Servlet container (e.g., Apache Tomcat) and attempts to measure, for each HTTP request: 
 * the processing time
 * the number of String objects created
 * the number of newly loaded classes
